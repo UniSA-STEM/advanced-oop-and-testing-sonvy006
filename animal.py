@@ -10,11 +10,11 @@ from abc import ABC, abstractmethod
 
 class Animal(ABC):
     def __init__(self, name, animal_id, age, species, dietary_needs):
-        self.name = name
-        self.animal_id = animal_id
-        self.age = age
-        self.species = species
-        self.dietary_needs = dietary_needs
+        self.__name = name
+        self.__animal_id = animal_id
+        self.__age = age
+        self.__species = species
+        self.__dietary_needs = dietary_needs
 
     def get_animal_id(self):
         return self.__animal_id
@@ -51,7 +51,7 @@ class Animal(ABC):
         return f"{self.__name} ({self.__species}), Age: {self.__age}"
 
     def __eq__(self, other):
-        return isinstance(other, Animal) and self.__animal__id == other.__animal__id
+        return isinstance(other, Animal) and self.__animal_id == other.__animal_id
 
 class Mammal(Animal):
     def __init__(self, name, animal_id, age, species, dietary_needs, fur_colour):
