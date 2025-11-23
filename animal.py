@@ -36,6 +36,9 @@ class Animal(ABC):
             raise ValueError('Age cannot be negative')
         self.__age = age
 
+    @abstractmethod
+    def make_sound(self):
+        pass
 
 
 
