@@ -40,6 +40,12 @@ class Animal(ABC):
     def make_sound(self):
         pass
 
+    @abstractmethod
+    def eat(self):
+        pass
+
+    def sleep(self):
+        return f"{self.__name} is peacefully sleeping."
 
 
 
