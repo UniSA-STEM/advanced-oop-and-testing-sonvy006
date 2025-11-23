@@ -108,6 +108,13 @@ class Bird(Animal):
         else:
             return f"{self.get_name()} spreads its {self.__wing_span}cm wings and soars!."
 
+class Reptile(Animal):
+    def __init__(self, name, animal_id, age, species, dietary_needs, scale_pattern:
+        super().__init__(name, animal_id, age, species, dietary_needs)
+        self.__scale_pattern = scale_pattern
+
+
+
 
 
 
