@@ -54,9 +54,18 @@ class Animal(ABC):
         return isinstance(other, Animal) and self.__animal__id == other.__animal__id
 
 class Mammal(Animal):
-    def __init__(self, name, animal_id, age, species, dietary_needs, fur_color):
+    def __init__(self, name, animal_id, age, species, dietary_needs, fur_colour):
         super().__init__(name, animal_id, age, species, dietary_needs)
-        self.__fur_color = fur_color
+        self.__fur_colour = fur_colour
+
+    def get_fur_color(self):
+        return self.__fur_colour
+
+    def set_fur_colour(self, fur_colour):
+        self.__fur_colour = fur_colour
+
+
+
 
 
 
