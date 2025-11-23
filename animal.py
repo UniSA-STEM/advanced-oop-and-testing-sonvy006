@@ -109,7 +109,7 @@ class Bird(Animal):
             return f"{self.get_name()} spreads its {self.__wing_span}cm wings and soars!."
 
 class Reptile(Animal):
-    def__init__(self, name, animal_id, age, species, dietary_needs, scale_pattern:
+    def__init__(self, name, animal_id, age, species, dietary_needs, scale_pattern):
         super().__init__(name, animal_id, age, species, dietary_needs)
         self.__scale_pattern = scale_pattern
 
@@ -135,10 +135,6 @@ class Reptile(Animal):
 
     def __str__(self):
         return super().__str__() + f", Scale pattern: {self.__scale_pattern}"
-
-
-
-
 
 
 
