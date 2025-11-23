@@ -22,7 +22,7 @@ class Animal(ABC):
     def get_name(self):
         return self.__name
 
-    def get_age(self:
+    def get_age(self):
         return self.__age
 
     def get_species(self):
@@ -52,6 +52,11 @@ class Animal(ABC):
 
     def __eq__(self, other):
         return isinstance(other, Animal) and self.__animal__id == other.__animal__id
+
+class Mammal(Animal):
+    def __init__(self, name, animal_id, age, species, dietary_needs, fur_color):
+        super().__init__(name, animal_id, age, species, dietary_needs)
+        self.__fur_color = fur_color
 
 
 
