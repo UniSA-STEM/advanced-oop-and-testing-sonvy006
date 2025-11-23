@@ -47,5 +47,13 @@ class Animal(ABC):
     def sleep(self):
         return f"{self.__name} is peacefully sleeping."
 
+    def __str__(self):
+        return f"{self.__name} ({self.__species}), Age: {self.__age}"
+
+    def __eq__(self, other):
+        return isinstance(other, Animal) and self.__animal__id == other.__animal__id
+
+
+
 
 
