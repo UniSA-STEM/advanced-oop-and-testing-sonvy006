@@ -31,7 +31,10 @@ class Animal(ABC):
     def get_dietary_needs(self):
         return self.__dietary_needs
 
-
+    def set_age(self, age):
+        if age < 0:
+            raise ValueError('Age cannot be negative')
+        self.__age = age
 
 
 
