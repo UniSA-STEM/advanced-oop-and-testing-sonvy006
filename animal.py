@@ -78,6 +78,14 @@ class Mammal(Animal):
     def __str__(self):
         return super().__str__() + f", Fur colour: {self.__fur_colour}"
 
+class Bird(Animal):
+    def __init__(self, name, animal_id, age, species, dietary_needs, wing_span):
+        super().__init__(name, animal_id, age, species, dietary_needs)
+        self.__wing_span = wing_span
+
+    def get_wing_span(self):
+        return self.__wing_span
+
 
 
 
