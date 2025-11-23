@@ -15,3 +15,23 @@ class Animal(ABC):
         self.age = age
         self.species = species
         self.dietary_needs = dietary_needs
+
+    def get_animal_id(self):
+        return self.__animal_id
+
+    def get_name(self):
+        return self.__name
+
+    def get_age(self:
+        return self.__age
+
+    def get_species(self):
+        return self.__species
+
+    def get_dietary_needs(self):
+        return self.__dietary_needs
+
+
+
+
+
