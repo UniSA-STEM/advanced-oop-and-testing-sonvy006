@@ -44,3 +44,42 @@ class Enclosure:
 
     def get_animal_type(self):
         return self.__animal_type
+
+    def add_animal(self, animal):
+        if self.__animal_type is None:
+            self.__animal_type = animal.__class__.__name__
+        elif self.__animal_type != animal.__class__.__name__:
+            raise ValueError(f"Cannot mix {animal.__class__.__name__} with {self.__animal_type}.")
+
+        if animal in self.__animals:
+            raise ValueError(f"{animal.get_name()} is already in this enclosure.")
+
+        self.__animals.append(animal)
+
+    def remove_animal(self, animal):
+        if animal not in self.__animals:
+            raise ValueError(f"{animal.get_name()} is not in this enclosure.")
+
+        self.__animals.remove(animal)
+
+        if len(self.__animals) == 0:
+            self.__animal_type = None
+
+    def get_status(self):
+        animal_count = len(self.__animals)
+        animal_names = [animal.get_name() for animal in self.__animals]
+        return {
+            "enclosure_id": self.__enclosure_id,
+            "size": self.__size,
+            "environment": self.__environment_type,
+            "cleanliness": self.__cleanliness,
+            "animal_count": animal_count,
+            "animals": animal_names
+        }
+
+    def __str__(self):
+        animal_count = len(self.__animals)
+        return f"Enclosure {self.__enclosure_id} ({self.__environment_type}, {self.__size}): {animal_count} animals, Cleanliness: {self.__cleanliness}/10"
+
+    def __eq__(self, other):
+        return isinstance(other, Enclosure) and self.__enclosure_id == other.__enclosure_id
