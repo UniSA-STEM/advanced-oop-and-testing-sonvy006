@@ -59,3 +59,4 @@ class Zoo:
                 f"Animals: {len(self.__animals)}\n"
                 f"Enclosures: {len(self.__enclosures)}\n"
                 f"Staff: {len(self.__staff)}")
+
