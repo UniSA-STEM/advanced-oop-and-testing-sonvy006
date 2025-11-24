@@ -52,6 +52,16 @@ class Staff(ABC):
         if enclosure in self.__assigned_enclosures:
             self.__assigned_enclosures.remove(enclosure)
 
+    @abstractmethod
+    def perform_duty(self):
+        pass
+
+    def __str__(self):
+        return f"{self.__name} - {self.__role} (ID: {self.__staff_id})"
+
+    def __eq__(self, other):
+        return isinstance(other, Staff) and self.__staff_id == other.__staff_id
+
 
 
 
