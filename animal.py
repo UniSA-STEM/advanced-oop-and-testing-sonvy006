@@ -15,6 +15,7 @@ class Animal(ABC):
         self.__age = age
         self.__species = species
         self.__dietary_needs = dietary_needs
+        self.__health_records = []
 
     def get_animal_id(self):
         return self.__animal_id
@@ -35,6 +36,15 @@ class Animal(ABC):
         if age < 0:
             raise ValueError('Age cannot be negative')
         self.__age = age
+
+    def set_dietary_needs(self, dietary_needs):
+        self.__dietary_needs = dietary_needs
+
+    def get_health_records(self):
+        return self.__health_records
+
+    def add_health_record(self, health_record):
+        self.__health_records.append(health_record)
 
     @abstractmethod
     def make_sound(self):
