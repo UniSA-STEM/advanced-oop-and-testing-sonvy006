@@ -31,7 +31,6 @@ class HealthRecord:
         return self.__resolved
 
     def resolve(self):
-        """Mark the health issue as resolved."""
         self.__resolved = True
 
     def __str__(self):
