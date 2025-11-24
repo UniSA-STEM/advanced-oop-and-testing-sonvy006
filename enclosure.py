@@ -1,5 +1,5 @@
 """
-File: filename.py
+File: enclosure.py
 Description: Enclosure class for housing animals in the zoo.
 Author: Vishesh Soni
 ID: 110387138
