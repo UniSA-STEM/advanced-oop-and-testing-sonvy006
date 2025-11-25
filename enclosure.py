@@ -8,7 +8,18 @@ This is my own work as defined by the University's Academic Integrity Policy.
 """
 
 class Enclosure:
+    """
+    Manages a single habitat area.
+    Enforces cleanliness standards and the single-species rule.
+    """
     def __init__(self, enclosure_id, size, environment_type, cleanliness):
+        """
+        Initialises the enclosure object.
+        :param enclosure_id: unique enclosure ID.
+        :param size: size of the enclosure.
+        :param environment_type: type of environment/habitat.
+        :param cleanliness: initial cleanliness level.
+        """
         self.__enclosure_id = enclosure_id
         self.__size = size
         self.__environment_type = environment_type
@@ -35,6 +46,11 @@ class Enclosure:
         return self.__cleanliness
 
     def set_cleanliness(self, cleanliness):
+        """
+        Sets the cleanliness level after validating it is between 0 and 10
+        :param cleanliness: new cleanliness level int
+        :return: None
+        """
         if cleanliness < 0 or cleanliness > 10:
             raise ValueError("Cleanliness must be between 0 and 10.")
         self.__cleanliness = cleanliness
@@ -46,6 +62,11 @@ class Enclosure:
         return self.__animal_type
 
     def add_animal(self, animal):
+        """
+        Adds an animal to the enclosure, enforcing the single-species rule
+        :param animal: animal object to add.
+        :return:None
+        """
         if self.__animal_type is None:
             self.__animal_type = animal.__class__.__name__
         elif self.__animal_type != animal.__class__.__name__:
@@ -66,6 +87,9 @@ class Enclosure:
             self.__animal_type = None
 
     def get_status(self):
+        """
+        Returns a dictionary summarizing the enclosure's status for reporting
+        """
         animal_count = len(self.__animals)
         animal_names = [animal.get_name() for animal in self.__animals]
         return {
@@ -78,8 +102,14 @@ class Enclosure:
         }
 
     def __str__(self):
+        """
+        Returns a formatted summary of the enclosure for quick reference.
+        """
         animal_count = len(self.__animals)
         return f"Enclosure {self.__enclosure_id} ({self.__environment_type}, {self.__size}): {animal_count} animals, Cleanliness: {self.__cleanliness}/10"
 
     def __eq__(self, other):
+        """
+        Checks if two Enclosure objects are equal based on their ID
+        """
         return isinstance(other, Enclosure) and self.__enclosure_id == other.__enclosure_id
