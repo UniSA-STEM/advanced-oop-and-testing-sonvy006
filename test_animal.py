@@ -13,7 +13,9 @@ from reptile import Reptile
 
 
 class TestMammal:
-
+    """
+    Tests Mammal specific attributes, methods, and validation logic
+    """
     @pytest.fixture
     def lion(self):
         return Mammal(name="Tyson", animal_id="M001", species="Lion", age=10, dietary_needs="Meat", fur_colour="Golden")
@@ -51,7 +53,9 @@ class TestMammal:
 
 
 class TestBird:
-
+    """
+    Tests bird specific attributes, methods, and validation logic
+    """
     @pytest.fixture
     def parrot(self):
         return Bird(name="Traitor", animal_id="B001", species="Parrot", age=3, dietary_needs="Seeds", wing_span=95)
@@ -70,7 +74,9 @@ class TestBird:
 
 
 class TestReptile:
-
+    """
+    Tests reptile specific attributes, methods, and validation logic
+    """
     @pytest.fixture
     def snake(self):
         return Reptile(name="Naagin", animal_id="R001", species="Python Snake", age=4, dietary_needs="Rodents", scale_pattern="Diamond")

@@ -14,7 +14,9 @@ from enclosure import Enclosure
 
 
 class TestZookeeper:
-
+    """
+    Tests Zookeeper specific methods including feeding and cleaning interactions.
+    """
     @pytest.fixture
     def keeper(self):
         return Zookeeper(staff_id="S001", name="Vishesh")
@@ -52,7 +54,9 @@ class TestZookeeper:
 
 
 class TestVeterinarian:
-
+    """
+    Tests Veterinarian specific methods including feeding and cleaning interactions.
+    """
     @pytest.fixture
     def vet(self):
         return Veterinarian(staff_id="S002", name="Sarah", specialization="Mammals")

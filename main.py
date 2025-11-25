@@ -20,23 +20,27 @@ def main():
     print("WELCOME TO SIMONE'S ZOO MANAGEMENT SYSTEM")
     print("=" * 60)
 
+    # instantiate the main zoo hub
     simones_zoo = Zoo(name="Simone's Zoo")
 
     print("-" * 60)
     print("1. CREATING ASSETS AND ASSOCIATING THEM WITH ZOO")
     print("-" * 60)
 
+    # instantiate animal specialized classes (Demonstrates Inheritance)
     lion = Mammal(name="Tyson", animal_id="M001", species="African Lion", age=10, dietary_needs="Raw Meat",
                   fur_colour="Golden")
     parrot = Bird(name="Traitor", animal_id="B001", species="Macaw Parrot", age=3, dietary_needs="Seeds", wing_span=50)
     snake = Reptile(name="Naagin", animal_id="R001", species="King Cobra Snake", age=4, dietary_needs="Rodents",
                     scale_pattern="Diamond")
 
+    # instantiate enclosure and staff
     safari = Enclosure(enclosure_id="ZONE_A", size="Large", environment_type="Safari Park", cleanliness=8)
 
     keeper = Zookeeper(staff_id="S001", name="Vishesh")
     vet = Veterinarian(staff_id="S002", name="Dr. Sarah", specialization="Reptiles and Birds")
 
+    # add all object to the main zoo lists
     simones_zoo.add_animal(lion)
     simones_zoo.add_animal(parrot)
     simones_zoo.add_animal(snake)
@@ -51,12 +55,14 @@ def main():
     print("2. ASSOCIATING AND HOUSING")
     print("-" * 60)
 
+    # using enclosure logic
     try:
         safari.add_animal(lion)
         print(f"Housed {lion.get_name()} in {safari.get_enclosure_id()}")
     except ValueError as e:
         print(f"Error housing animal: {e}")
 
+    #duties assigned to staff
     keeper.assign_animal(lion)
     keeper.assign_enclosure(safari)
     vet.assign_animal(snake)
@@ -71,7 +77,7 @@ def main():
     print("-" * 60)
 
     print("4. DAILY ROUTINE (Feeding & Cleaning)")
-
+    #zookeeper doing assigned duties
     print(f"Action: {keeper.feed_animal(lion)}")
 
     print(f"Action: {keeper.clean_enclosure(safari)}")
@@ -80,23 +86,31 @@ def main():
 
     print("5. HEALTH SYSTEM INTEGRATION (Recording and Treatment)")
 
+    #vet logs a new high severity issue
     print(vet.conduct_health_check(snake, issue_description="Scale infection", severity="High"))
 
+    # access the animals health records
     snakes_records = snake.get_health_records()
+
+    #printing the records using HealthRecord.__str__method
     print(f"Current Records for {snake.get_name()} (Count: {len(snakes_records)}):")
     print(snakes_records[0])
 
+    #vet treats the issue
     print(vet.treat_animal(snakes_records[0]))
 
+    #Check the status of the record
     print(f"Record Status After Treatment: {'Resolved' if snakes_records[0].is_resolved() else 'Active'}")
 
     print("-" * 60)
 
     print("6. ZOO & ENCLOSURE STATUS REPORTS")
 
+    #reprot 1: Filtering animals by class type
     mammal_list = simones_zoo.get_animals_by_species("Mammal")
     print(f"Animals by Mammal species: {len(mammal_list)}")
 
+    #reprot 2: gets status
     status = safari.get_status()
     print(
         f"Enclosure Report {status['enclosure_id']}: Animals: {status['animal_count']}, Cleanliness: {status['cleanliness']}")

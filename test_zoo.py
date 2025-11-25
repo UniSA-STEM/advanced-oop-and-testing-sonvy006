@@ -15,7 +15,9 @@ from zookeeper import Zookeeper
 
 
 class TestZoo:
-
+    """
+    Tests the main Zoo management hub, covering aggregation lists and filtering.
+    """
     @pytest.fixture
     def zoo(self):
         return Zoo(name="Simone's Zoo")

@@ -12,7 +12,9 @@ from mammal import Mammal
 
 
 class TestHealthRecord:
-
+    """
+    Tests the HealthRecord utility's state management, validation, and equality.
+    """
     @pytest.fixture
     def lion(self):
         return Mammal(name="Tyson", animal_id="M001", species="Lion", age=10, dietary_needs="Meat", fur_colour="Golden")

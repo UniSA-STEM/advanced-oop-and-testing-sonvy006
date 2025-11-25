@@ -13,7 +13,9 @@ from bird import Bird
 
 
 class TestEnclosure:
-
+    """
+    Tests the Enclosure's aggregation management and validation logic.
+    """
     @pytest.fixture
     def safari(self):
         return Enclosure(enclosure_id="ZONE_A", size="Large", environment_type="Safari Park", cleanliness=8)
